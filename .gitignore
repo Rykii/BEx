@@ -1,0 +1,16 @@
+# Temporary files
+*.doc
+*.pdf
+*.tmp
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
