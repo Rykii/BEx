@@ -1,7 +1,8 @@
 ---
 name: Archivist
-description: "Use when: archiving regulatory URLs into standardized knowledge base files with YAML front matter, version control, and format preservation"
+description: "Use when: archiving regulatory URLs into standardized knowledge base files with YAML front matter, version control, and format preservation. Also handles _meta/ path writes for Verifier corrections and Backlog Manager state files."
 type: agent
+version: "2.0"
 model: claude-opus-4-7
 ---
 
@@ -67,6 +68,7 @@ Additional optional fields (if present in document):
 **When saving:**
 - Target path: `knowledge_base/{asset_type}/{sanitized_doc_title}.md` (relative to project root)
 - Check if file already exists in the knowledge base
+- Each document must follow the canonical path convention
   
 **If new document:**
 - Save directly with full filename
@@ -77,6 +79,51 @@ Additional optional fields (if present in document):
 - In OLD file's front matter, add field: `superseded_by: {new_filename}`
 - Update `version` field in old file to: `已废止` (obsolete)
 - Document the change in both files
+
+### 4b. _meta Path Support（新增）
+
+系统级元数据文件写入到 `knowledge_base/_meta/` 路径：
+
+| 文件 | 写入者 | 说明 |
+|------|-------|------|
+| `knowledge_base/_meta/probe_backlog.json` | BEx/Backlog Manager | 迭代探查状态机 |
+| `knowledge_base/_meta/assertion_verification.json` | Verifier | 断言交叉验证结果 |
+| `knowledge_base/_meta/corrections/{asset}_{date}_correction.md` | Verifier → Archivist | 勘误表 |
+
+**勘误表模板**（写入 `corrections/` 时使用）：
+
+```markdown
+---
+asset_type: {资产类型}
+source_report: {被校验的报告名}
+verified_at: YYYY-MM-DD
+type: correction
+status: published
+---
+
+# 勘误表：{报告名}
+
+## 证伪断言列表
+
+| 断言ID | 原文表述 | 官方依据 | 修正结论 | 置信度 |
+|--------|---------|---------|---------|--------|
+| AST-001 | 碳回购所有权不转移 | 《上海碳市场回购交易业务规则》第X条 | 买断式回购首期所有权转移 | high |
+```
+
+### 4c. Verifier 集成
+
+当 Verifier 标记断言为 CORROBORATED 并需要回写知识库时：
+
+1. 接收 Verifier 输出的已验证断言（含官方来源 URL）
+2. 爬取并归档对应的官方文件（标准 Archivist 流程）
+3. 在归档文件的 YAML frontmatter 中添加：
+   ```yaml
+   verified_from:
+     - report: "{用户上传报告名}"
+       assertion_id: "AST-XXX"
+       status: CORROBORATED
+   ```
+4. 确保被核验的报告引用指向已归档的官方文件
 
 ### 5. Validation Constraints
 

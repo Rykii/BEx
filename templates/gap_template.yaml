@@ -1,0 +1,27 @@
+# Gap 清单模板
+
+# 使用方式：Analyst 在探查文档末尾输出此 YAML，供 Backlog Manager 解析
+
+gaps:
+  - id: GAP-001
+    section: "章节名"
+    question: "具体的、可搜索的疑问（禁止笼统描述）"
+    priority: P0    # P0=阻塞设计 / P1=重要 / P2=优化
+    recon_keywords:
+      - "关键词1"
+      - "关键词2"
+      - "关键词3"
+    source_refs:
+      - "《已参考的文件名》第X条"
+  - id: GAP-002
+    section: "章节名"
+    question: "具体疑问"
+    priority: P1
+    recon_keywords:
+      - "关键词1"
+    source_refs: []
+
+# Priority 定义：
+#   P0: 阻塞产品设计 — 无法确定则核心业务流程不可设计
+#   P1: 重要 — 影响系统功能模块边界或风控逻辑
+#   P2: 优化 — 影响非核心功能或体验优化
