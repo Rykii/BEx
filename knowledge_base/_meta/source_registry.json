@@ -317,12 +317,12 @@
       "sources": [],
       "outstanding_sources": []
     },
-    "衍生品": {
-      "display_name": "衍生品业务",
+    "收益互换": {
+      "display_name": "收益互换(TRS)业务",
       "probe_reports": [],
       "sources": [
         {
-          "id": "DERIV-001",
+          "id": "TRS-001",
           "name": "衍生品交易监督管理办法（试行）",
           "agency": "中国证券监督管理委员会",
           "doc_number": "证监会令【第234号】",
@@ -332,10 +332,48 @@
           "publish_date": "2026-05-14",
           "effective_date": "2026-11-16",
           "status": "已发布（尚未施行）",
+          "archived_at": "knowledge_base/TRS_结售汇/衍生品交易监督管理办法（试行）.md",
           "tags": ["衍生品", "TRS", "保证金", "履约保障", "场外衍生品"]
-        },
+        }
+      ],
+      "outstanding_sources": []
+    },
+    "利率互换": {
+      "display_name": "利率互换(IRS)业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "场外期权": {
+      "display_name": "场外期权业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "其他衍生品": {
+      "display_name": "其他衍生品(CDS/CMO/MBS/CCS)业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "收益凭证": {
+      "display_name": "收益凭证业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "债券及ETF": {
+      "display_name": "债券及ETF业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "对冲交易": {
+      "display_name": "对冲交易业务",
+      "probe_reports": [],
+      "sources": [
         {
-          "id": "DERIV-002",
+          "id": "HEDGE-001",
           "name": "上海期货交易所",
           "agency": "上海期货交易所 (SHFE)",
           "level": "L2",
@@ -352,18 +390,6 @@
         }
       ],
       "outstanding_sources": []
-    },
-    "债券": {
-      "display_name": "债券及回购业务",
-      "probe_reports": [],
-      "sources": [],
-      "outstanding_sources": []
-    },
-    "商品": {
-      "display_name": "大宗商品业务",
-      "probe_reports": [],
-      "sources": [],
-      "outstanding_sources": []
     }
   },
   "global_frameworks": {
@@ -373,7 +399,7 @@
     "l4_domains": ["laws.cn"]
   },
   "_mandatory_sources_checklist": {
-    "_description": "按资产大类预设的强制信源检查表。Recon每次探查前必须过一遍此表，确保核心信源不被遗漏。",
+    "_description": "按资产大类预设的强制信源检查表。Recon每次探查前必须过一遍此表，确保核心信源不被遗漏。资产大类定义以 bex.agent.md 为唯一权威源。",
     "外汇": {
       "regulators": ["国家外汇管理局(SAFE)官网 - 结售汇与外汇市场管理栏目", "中国人民银行(PBOC)官网"],
       "exchanges_and_infra": [
@@ -391,21 +417,45 @@
       "associations": [],
       "data_sources": []
     },
-    "衍生品": {
-      "regulators": ["中国证监会(CSRC)", "国家金融监督管理总局(NFRA)"],
-      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "中国金融期货交易所(CFFEX)"],
-      "associations": ["NAFMII — 信用衍生品定义文件", "中国证券业协会(SAC)"],
+    "收益互换": {
+      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
+      "exchanges_and_infra": ["境外标的交易所(港交所/新交所等)", "境内标的交易所(上交所/深交所/中金所)"],
+      "associations": ["SAC — 收益互换业务管理办法", "NAFMII — 信用衍生品定义文件"],
       "data_sources": []
     },
-    "债券": {
+    "利率互换": {
+      "regulators": ["中国人民银行(PBOC)", "国家金融监督管理总局(NFRA)"],
+      "exchanges_and_infra": ["中国外汇交易中心(CFETS) — 利率互换交易系统", "上海清算所(SHCH) — 利率互换集中清算"],
+      "associations": ["NAFMII — 利率衍生品交易定义文件"],
+      "data_sources": ["CFETS利率互换曲线", "SHIBOR各期限利率"]
+    },
+    "场外期权": {
+      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
+      "exchanges_and_infra": ["标的资产交易所(境外指数/ETF/商品对应交易所)"],
+      "associations": ["SAC — 场外期权业务自律规则"],
+      "data_sources": []
+    },
+    "其他衍生品": {
+      "regulators": ["中国证监会(CSRC)", "国家金融监督管理总局(NFRA)", "中国人民银行(PBOC)"],
+      "exchanges_and_infra": ["各标的资产交易所"],
+      "associations": ["NAFMII — CDS/信用衍生品定义文件"],
+      "data_sources": []
+    },
+    "收益凭证": {
+      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
+      "exchanges_and_infra": [],
+      "associations": ["SAC — 收益凭证业务规范"],
+      "data_sources": []
+    },
+    "债券及ETF": {
       "regulators": ["中国人民银行(PBOC)", "中国证监会(CSRC)"],
       "exchanges_and_infra": ["中国外汇交易中心(CFETS) — 本币市场", "上海清算所(SHCH)", "中央国债登记结算公司(chinabond.com.cn)", "上交所(sse.com.cn)", "深交所(szse.cn)"],
       "associations": ["NAFMII — 债券交易规范"],
-      "data_sources": []
+      "data_sources": ["中债估值", "CFETS债券行情"]
     },
-    "商品": {
-      "regulators": ["中国证监会(CSRC)"],
-      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "广州期货交易所(GFEX)"],
+    "对冲交易": {
+      "regulators": ["中国证监会(CSRC)", "中国金融期货交易所(CFFEX)"],
+      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "中国金融期货交易所(CFFEX)", "上交所(sse.com.cn)", "深交所(szse.cn)"],
       "associations": [],
       "data_sources": []
     }
