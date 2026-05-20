@@ -131,6 +131,51 @@ Confirm search parameters before beginning reconnaissance.
 
 ---
 
+## 强制信源检查表（每次探查前必须过一遍）
+
+> **目的**：防止遗漏核心信源（如 2026-05-20 发现的 CFETS 产品指南漏扫问题）。
+> **位置**：`knowledge_base/_meta/source_registry.json` → `_mandatory_sources_checklist`
+
+### 检查流程
+
+```
+Recon 收到探查任务
+    │
+    ▼
+1. 读取 source_registry.json → _mandatory_sources_checklist.{资产大类}
+    │
+    ▼
+2. 对照 checkist 的四类信源，逐一确认是否已搜索/已归档：
+   - regulators: 监管机构法规
+   - exchanges_and_infra: 交易所/基础设施产品规则 ← 最易遗漏
+   - associations: 行业协会定义文件
+   - data_sources: 行情/统计/参考数据页
+    │
+    ▼
+3. 输出检查报告：
+   ✓ 已覆盖：{已搜索/已归档的信源}
+   ⚠ 未覆盖：{checklist 中有但本次未搜索到的信源} → 标记为 outstanding
+   ✗ 待获取：{已确认存在但未归档的信源} → 追加至 Recon 搜索队列
+```
+
+### 各资产大类核心信源速查
+
+| 资产大类 | 最易遗漏的信源类型 | 示例 |
+|---------|------------------|------|
+| **外汇** | CFETS 产品指南页（每品种独立页面） | 即期/远期/掉期/货币掉期/期权产品定义与交易规则 |
+| **外汇** | 上海清算所集中清算指南 | 外汇 CCP 清算品种/期限/币种覆盖 |
+| **碳金融** | 地方碳交易所业务规则 | 上海/湖北/广州环交所 |
+| **衍生品** | 各期货交易所品种规则 | SHFE/DCE/CZCE 品种合约规格 |
+| **债券** | 中央结算公司/上清所托管规则 | 质押式/买断式回购业务指引 |
+
+### 禁止行为
+
+- 🚫 搜到监管部门法规即停止 → 必须继续搜索**交易所产品级规则**
+- 🚫 以"之前已搜过"为由跳过 checklist → 每次探查都需重新确认
+- 🚫 用通用域名（如 `chinamoney.com.cn`）代替具体产品页面 URL
+
+---
+
 ## 信源注册表维护
 
 每次任务完成后，将新发现的官方信源追加至 `knowledge_base/_meta/source_registry.json`。

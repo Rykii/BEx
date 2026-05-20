@@ -226,7 +226,8 @@
           "domain": "nfra.gov.cn",
           "expected_date": "2024-12",
           "status": "待获取",
-          "notes": "Round 2 定向探查：NFRA站内搜索未返回结果。已标记为P0待人工核实。对外汇衍生品保证金制度有重大影响。"
+          "notes": "Round 2 定向探查：NFRA站内搜索未返回结果。已标记为P0待人工核实。对外汇衍生品保证金制度有重大影响。",
+          "gap_ref": "GAP-005 (P0)"
         },
         {
           "id": "FX-PENDING-002",
@@ -235,7 +236,78 @@
           "level": "L2",
           "domain": "cffex.com.cn",
           "status": "待获取",
-          "notes": "Round 2 定向探查：网站不可访问（连接重置）。外汇期货为仿真阶段，P1优先级。"
+          "notes": "Round 2 定向探查：网站不可访问（连接重置）。外汇期货为仿真阶段，P1优先级。",
+          "gap_ref": "GAP-002 (P1)"
+        },
+        {
+          "id": "FX-PENDING-003",
+          "name": "CFETS外汇即期产品定义与交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现：为外汇即期最核心的产品定义信源，当前仅通过中间价页面间接引用，未独立归档。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-004",
+          "name": "CFETS外汇远期产品定义与交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现：报告正文多处引用'交易中心公布的产品定义'但未给出具体URL。为外汇远期核心产品信源。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-005",
+          "name": "CFETS外汇掉期产品定义与交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现。外汇掉期日均交易量近1000亿美元，产品定义信源必须独立归档。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-006",
+          "name": "CFETS外汇货币掉期产品定义与交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现。涉及本金交换形式、利息交换等复杂定义，须独立归档。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-007",
+          "name": "CFETS外汇期权产品定义与交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现。差额交割/全额交割、行权规则等关键定义须从CFETS产品指南获取。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-008",
+          "name": "CFETS银行间人民币外汇市场交易规则",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现。CFETS发布的通用交易规则，覆盖全品种交易时间、确认流程、竞价/询价/撮合规则。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
+        },
+        {
+          "id": "FX-PENDING-009",
+          "name": "上海清算所集中清算业务指南（外汇部分）",
+          "agency": "上海清算所 (SHCH)",
+          "level": "L2",
+          "domain": "shclearing.com",
+          "status": "待获取",
+          "notes": "2026-05-20 排查发现：报告中提及上海清算所15次但无任何shclearing.com URL归档。集中清算CCP是银行间外汇市场清算的核心基础设施，必须独立归档。",
+          "gap_ref": "信源完整性检查 / 强制信源表"
         }
       ]
     },
@@ -299,5 +371,43 @@
     "l2_domains": ["chinamoney.com.cn", "shfe.com.cn", "cffex.com.cn", "sse.com.cn", "szse.cn", "ceex.cn", "shclearing.com"],
     "l3_domains": ["nafmii.org.cn", "sac.net.cn", "sfia.org.cn"],
     "l4_domains": ["laws.cn"]
+  },
+  "_mandatory_sources_checklist": {
+    "_description": "按资产大类预设的强制信源检查表。Recon每次探查前必须过一遍此表，确保核心信源不被遗漏。",
+    "外汇": {
+      "regulators": ["国家外汇管理局(SAFE)官网 - 结售汇与外汇市场管理栏目", "中国人民银行(PBOC)官网"],
+      "exchanges_and_infra": [
+        "中国外汇交易中心(CFETS/chinamoney.com.cn) — 各品种产品定义与交易规则",
+        "中国外汇交易中心 — 银行间人民币外汇市场交易规则",
+        "上海清算所(SHCH/shclearing.com) — 集中清算业务指南(外汇部分)",
+        "中国金融期货交易所(CFFEX) — 外汇期货仿真合约规则(如适用)"
+      ],
+      "associations": ["中国银行间市场交易商协会(NAFMII) — 汇率衍生产品交易定义文件"],
+      "data_sources": ["CFETS人民币汇率中间价", "CFETS外币拆借交易专区", "SAFE国际收支报告(年度)"]
+    },
+    "碳金融": {
+      "regulators": ["生态环境部", "中国人民银行"],
+      "exchanges_and_infra": ["上海环境能源交易所(ceex.cn)", "湖北碳排放权交易中心", "广州碳排放权交易所"],
+      "associations": [],
+      "data_sources": []
+    },
+    "衍生品": {
+      "regulators": ["中国证监会(CSRC)", "国家金融监督管理总局(NFRA)"],
+      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "中国金融期货交易所(CFFEX)"],
+      "associations": ["NAFMII — 信用衍生品定义文件", "中国证券业协会(SAC)"],
+      "data_sources": []
+    },
+    "债券": {
+      "regulators": ["中国人民银行(PBOC)", "中国证监会(CSRC)"],
+      "exchanges_and_infra": ["中国外汇交易中心(CFETS) — 本币市场", "上海清算所(SHCH)", "中央国债登记结算公司(chinabond.com.cn)", "上交所(sse.com.cn)", "深交所(szse.cn)"],
+      "associations": ["NAFMII — 债券交易规范"],
+      "data_sources": []
+    },
+    "商品": {
+      "regulators": ["中国证监会(CSRC)"],
+      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "广州期货交易所(GFEX)"],
+      "associations": [],
+      "data_sources": []
+    }
   }
 }
