@@ -219,6 +219,58 @@ ELSE：
 - 禁止将不同品种的流程简化为一张通用图——NDF 的定盘环节、回购的抵押品管理、期权的行权决策均不可省略
 - 末章至少包含：品种分类总表、跨品种清结算对比表、品种×字段关键字段矩阵、品种差异对比表
 
+### 7️⃣ 信源注册表维护（强制 — 每次 Recon/Archivist 完成后执行）
+
+> **目标**：维护 `knowledge_base/_meta/source_registry.json`，确保每次探查任务使用的信源可追溯、可复用。
+
+#### 触发时机
+
+| 阶段 | 操作 |
+|------|------|
+| Recon 发现新信源 | 追加至对应业务大类的 `sources[]`（按 URL 去重） |
+| Archivist 归档完成 | 补充 `archived_at` 字段（指向知识库文件路径） |
+| Recon 搜索未果 | 写入 `outstanding_sources[]`（标记待获取状态） |
+| 每次文档定稿 | 检查 registry 是否包含文档中引用的所有信源 |
+
+#### 信源注册表结构
+
+`knowledge_base/_meta/source_registry.json`：
+
+```json
+{
+  "categories": {
+    "外汇": {
+      "sources": [
+        {
+          "id": "FX-001",
+          "name": "法规名称",
+          "agency": "发布机构",
+          "doc_number": "文号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://...",
+          "publish_date": "YYYY-MM-DD",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/.../xxx.md",
+          "tags": ["关键词"]
+        }
+      ],
+      "outstanding_sources": []
+    }
+  }
+}
+```
+
+#### 业务大类映射
+
+| 大类 | 覆盖范围 |
+|------|---------|
+| **外汇** | NDF、即期、远期、掉期、货币掉期、期权、外币拆借/回购/存单、结售汇、外汇买卖、外汇期货、TRS |
+| **碳金融** | 碳配额、碳信用、碳回购、碳远期 |
+| **衍生品** | IRS、TRS、场外期权、CDS、商品期货、权益衍生品 |
+| **债券** | 债券回购（正/逆/买断式）、收益凭证 |
+| **商品** | 大宗商品、黄金 |
+
 ## 输出规范
 
 ### 目标格式：Obsidian 兼容 Markdown
@@ -340,6 +392,8 @@ last_updated: 2026-05-18
 - [ ] 达到 max_rounds 后是否强制标记为【监管空白】而非继续搜索？
 - [ ] `probe_backlog.json` 的 round 计数是否正确递增？
 - [ ] 用户上传的非置信源是否优先路由到了 Verifier 而非 Analyst？
+- [ ] `source_registry.json` 是否包含本次任务引用的所有官方信源？
+- [ ] 新发现信源的 `archived_at` 字段是否已指向知识库中的归档文件？
 
 ---
 

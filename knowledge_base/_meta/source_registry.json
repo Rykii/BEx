@@ -1,0 +1,303 @@
+{
+  "_schema_version": "1.0",
+  "_description": "信源注册表 — 按业务大类维护所有探查任务中用到的官方信源。每次Recon发现新信源或Archivist归档新文件时，BEx自动补充至对应大类。",
+  "_last_updated": "2026-05-20",
+  "categories": {
+    "外汇": {
+      "display_name": "外汇业务",
+      "probe_reports": ["knowledge_base/外汇业务综合探查报告.md"],
+      "sources": [
+        {
+          "id": "FX-001",
+          "name": "银行间外汇市场管理规定",
+          "agency": "中国人民银行",
+          "doc_number": "中国人民银行令〔2025〕第13号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2025/1226/26955.html",
+          "publish_date": "2025-12-26",
+          "effective_date": "2026-02-01",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/银行间外汇市场/银行间外汇市场管理规定.md",
+          "tags": ["银行间外汇市场", "做市商", "中间价", "清算", "交易品种"]
+        },
+        {
+          "id": "FX-002",
+          "name": "关于进一步促进外汇市场服务实体经济有关措施的通知",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2022〕15号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2022/0520/20982.html",
+          "publish_date": "2022-05-20",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/关于进一步促进外汇市场服务实体经济有关措施的通知.md",
+          "tags": ["外汇衍生品", "美式期权", "亚式期权", "实需原则", "差额结算"]
+        },
+        {
+          "id": "FX-003",
+          "name": "外汇市场交易行为规范指引",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2021〕34号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2021/1203/20296.html",
+          "publish_date": "2021-12-03",
+          "effective_date": "2022-01-01",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/外汇市场交易行为规范指引.md",
+          "tags": ["交易行为规范", "内控制度", "实需原则"]
+        },
+        {
+          "id": "FX-004",
+          "name": "银行办理结售汇业务管理办法实施细则",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2014〕53号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2014/1230/5727.html",
+          "publish_date": "2014-12-30",
+          "effective_date": "2015-01-01",
+          "status": "现行有效（已修改）",
+          "amendments": "汇发〔2023〕8号部分修改第49条",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行办理结售汇业务管理办法实施细则.md",
+          "tags": ["结售汇", "综合头寸", "衍生产品", "实需原则", "限额管理"]
+        },
+        {
+          "id": "FX-005",
+          "name": "个人外汇管理办法",
+          "agency": "中国人民银行",
+          "doc_number": "中国人民银行令〔2006〕第3号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2022/0818/21330.html",
+          "publish_date": "2006-12-25",
+          "effective_date": "2007-02-01",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/个人外汇管理办法.md",
+          "tags": ["个人外汇", "结售汇额度", "外币现钞", "外汇账户"]
+        },
+        {
+          "id": "FX-006",
+          "name": "个人外汇管理办法实施细则",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2007〕1号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2007/0105/5320.html",
+          "publish_date": "2007-01-05",
+          "effective_date": "2007-02-01",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/个人外汇管理办法实施细则.md",
+          "tags": ["个人外汇", "年度总额5万美元", "现钞限额"]
+        },
+        {
+          "id": "FX-007",
+          "name": "银行外汇风险交易报告管理办法（试行）",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2024〕32号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2024/1227/25585.html",
+          "publish_date": "2024-12-27",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行外汇风险交易报告管理办法（试行）.md",
+          "tags": ["风险交易报告", "反洗钱", "外汇合规"]
+        },
+        {
+          "id": "FX-008",
+          "name": "银行外汇业务尽职免责规定（试行）",
+          "agency": "国家外汇管理局",
+          "doc_number": "汇发〔2024〕33号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2024/1227/25581.html",
+          "publish_date": "2024-12-27",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行外汇业务尽职免责规定（试行）.md",
+          "tags": ["尽职免责", "外汇合规", "展业三原则"]
+        },
+        {
+          "id": "FX-009",
+          "name": "人民币汇率中间价",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "url": "https://www.chinamoney.com.cn/chinese/bkccpr/",
+          "status": "实时更新",
+          "archived_at": "knowledge_base/外汇即期/人民币汇率中间价.md",
+          "tags": ["中间价", "汇率", "CFETS"]
+        },
+        {
+          "id": "FX-010",
+          "name": "外币拆借交易专区",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "url": "https://www.chinamoney.com.cn/chinese/fclzhuanqu/",
+          "status": "实时更新",
+          "archived_at": "knowledge_base/外币拆借/外币拆借交易专区.md",
+          "tags": ["外币拆借", "USD CIROR", "拆借报价", "撮合交易"]
+        },
+        {
+          "id": "FX-011",
+          "name": "结售汇与外汇市场管理政策法规索引",
+          "agency": "国家外汇管理局",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/jshywhscgl/index.html",
+          "status": "持续更新",
+          "archived_at": "knowledge_base/TRS_结售汇/结售汇与外汇市场管理.md",
+          "tags": ["结售汇", "外汇市场", "法规索引"]
+        },
+        {
+          "id": "FX-012",
+          "name": "2024年中国国际收支报告",
+          "agency": "国家外汇管理局",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2025/0328/25914.html",
+          "publish_date": "2025-03-28",
+          "status": "已发布",
+          "format": "PDF",
+          "tags": ["国际收支", "外汇市场交易量", "统计数据"],
+          "notes": "Round 2 定向探查确证源URL有效，PDF可下载"
+        },
+        {
+          "id": "FX-013",
+          "name": "关于境内企业境外上市资金管理有关问题的通知",
+          "agency": "中国人民银行 / 国家外汇管理局",
+          "doc_number": "银发〔2025〕252号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2025/1226/26965.html",
+          "publish_date": "2025-12-26",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/关于境内企业境外上市资金管理有关问题的通知.md",
+          "tags": ["境外上市", "资本项目", "跨境资金"]
+        },
+        {
+          "id": "FX-014",
+          "name": "关于跨国公司本外币一体化资金池业务有关事宜的通知",
+          "agency": "中国人民银行 / 国家外汇管理局",
+          "doc_number": "银发〔2025〕251号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2025/1226/26960.html",
+          "publish_date": "2025-12-26",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/关于跨国公司本外币一体化资金池业务有关事宜的通知.md",
+          "tags": ["跨境资金池", "本外币一体化", "跨国公司"]
+        },
+        {
+          "id": "FX-015",
+          "name": "境内企业境外放款管理办法",
+          "agency": "中国人民银行 / 国家外汇管理局",
+          "doc_number": "银发〔2026〕63号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2026/0320/27266.html",
+          "publish_date": "2026-03-20",
+          "status": "现行有效",
+          "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/境内企业境外放款管理办法.md",
+          "tags": ["境外放款", "跨境融资", "资本项目"]
+        },
+        {
+          "id": "FX-016",
+          "name": "衍生品交易监督管理办法（试行）",
+          "agency": "中国证券监督管理委员会",
+          "doc_number": "证监会令【第234号】",
+          "level": "L1",
+          "domain": "csrc.gov.cn",
+          "url": "https://www.csrc.gov.cn/csrc/c101953/c7632837/content.shtml",
+          "publish_date": "2026-05-14",
+          "effective_date": "2026-11-16",
+          "status": "已发布（尚未施行）",
+          "archived_at": "knowledge_base/TRS_结售汇/衍生品交易监督管理办法（试行）.md",
+          "tags": ["衍生品", "TRS", "保证金", "履约保障"]
+        }
+      ],
+      "outstanding_sources": [
+        {
+          "id": "FX-PENDING-001",
+          "name": "金融机构非集中清算衍生品交易保证金管理办法",
+          "agency": "国家金融监督管理总局 (NFRA)",
+          "level": "L1",
+          "domain": "nfra.gov.cn",
+          "expected_date": "2024-12",
+          "status": "待获取",
+          "notes": "Round 2 定向探查：NFRA站内搜索未返回结果。已标记为P0待人工核实。对外汇衍生品保证金制度有重大影响。"
+        },
+        {
+          "id": "FX-PENDING-002",
+          "name": "CFFEX外汇期货仿真交易合约规则",
+          "agency": "中国金融期货交易所",
+          "level": "L2",
+          "domain": "cffex.com.cn",
+          "status": "待获取",
+          "notes": "Round 2 定向探查：网站不可访问（连接重置）。外汇期货为仿真阶段，P1优先级。"
+        }
+      ]
+    },
+    "碳金融": {
+      "display_name": "碳金融业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "衍生品": {
+      "display_name": "衍生品业务",
+      "probe_reports": [],
+      "sources": [
+        {
+          "id": "DERIV-001",
+          "name": "衍生品交易监督管理办法（试行）",
+          "agency": "中国证券监督管理委员会",
+          "doc_number": "证监会令【第234号】",
+          "level": "L1",
+          "domain": "csrc.gov.cn",
+          "url": "https://www.csrc.gov.cn/csrc/c101953/c7632837/content.shtml",
+          "publish_date": "2026-05-14",
+          "effective_date": "2026-11-16",
+          "status": "已发布（尚未施行）",
+          "tags": ["衍生品", "TRS", "保证金", "履约保障", "场外衍生品"]
+        },
+        {
+          "id": "DERIV-002",
+          "name": "上海期货交易所",
+          "agency": "上海期货交易所 (SHFE)",
+          "level": "L2",
+          "domain": "shfe.com.cn",
+          "url": "https://www.shfe.com.cn/",
+          "sub_urls": [
+            "https://www.shfe.com.cn/products/",
+            "https://www.shfe.com.cn/regulation/",
+            "https://www.shfe.com.cn/publicnotice/notice/202605/t20260515_831716.html"
+          ],
+          "status": "实时更新",
+          "archived_at": "knowledge_base/外汇期货/上海期货交易所.md",
+          "tags": ["商品期货", "期货交易", "风控规则"]
+        }
+      ],
+      "outstanding_sources": []
+    },
+    "债券": {
+      "display_name": "债券及回购业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    },
+    "商品": {
+      "display_name": "大宗商品业务",
+      "probe_reports": [],
+      "sources": [],
+      "outstanding_sources": []
+    }
+  },
+  "global_frameworks": {
+    "l1_domains": ["gov.cn", "safe.gov.cn", "pbc.gov.cn", "csrc.gov.cn", "nfra.gov.cn"],
+    "l2_domains": ["chinamoney.com.cn", "shfe.com.cn", "cffex.com.cn", "sse.com.cn", "szse.cn", "ceex.cn", "shclearing.com"],
+    "l3_domains": ["nafmii.org.cn", "sac.net.cn", "sfia.org.cn"],
+    "l4_domains": ["laws.cn"]
+  }
+}

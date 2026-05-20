@@ -131,6 +131,46 @@ Confirm search parameters before beginning reconnaissance.
 
 ---
 
+## 信源注册表维护
+
+每次任务完成后，将新发现的官方信源追加至 `knowledge_base/_meta/source_registry.json`。
+
+### 维护规则
+
+1. **查重**：新信源入库前先检查对应业务大类下是否已存在（按 URL 去重）
+2. **归类**：按业务大类（外汇 / 碳金融 / 衍生品 / 债券 / 商品）放入对应 `categories` 节点
+3. **标记遗漏**：搜索了某信源但未发现相关内容时，写入 `outstanding_sources` 数组
+4. **优先级**：每个信源标注 `level: L1|L2|L3|L4`，L1-L4 定义见 `global_frameworks`
+5. **必填字段**：`id`（{CATEGORY}-{NNN}）、`name`、`agency`、`domain`、`url`、`level`、`status`
+
+### 信源注册表结构
+
+```json
+{
+  "categories": {
+    "外汇": {
+      "sources": [
+        {
+          "id": "FX-001",
+          "name": "法规名称",
+          "agency": "发布机构",
+          "doc_number": "文号",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://...",
+          "publish_date": "YYYY-MM-DD",
+          "status": "现行有效",
+          "tags": ["关键词"]
+        }
+      ],
+      "outstanding_sources": []
+    }
+  }
+}
+```
+
+---
+
 ## 定向搜索模式（Gap-Driven Directed Search）
 
 > **触发条件**：由 BEx/Backlog Manager 调用，携带 probe_id + gaps 列表。

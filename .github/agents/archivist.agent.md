@@ -190,6 +190,7 @@ Before marking a document archived:
 - [ ] Supersedes/superseded_by fields populated if versioning
 - [ ] Source URL confirmed and working
 - [ ] Tags are specific and searchable (not generic)
+- [ ] `source_registry.json` updated — new source added with `archived_at` field pointing to this file
 
 ## Response Format
 
@@ -201,4 +202,5 @@ When archiving completes, report:
 - Source: [URL]
 - Path: knowledge_base/[asset_type]/[filename].md
 - Status: [new | updated (supersedes vYYYYMMDD)]
+- Registry: source_registry.json → categories.{业务大类}.sources[] ✓
 ```
