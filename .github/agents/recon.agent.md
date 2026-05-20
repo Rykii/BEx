@@ -54,6 +54,12 @@ For **every discovered document**, extract and verify:
    - 场内 (On-exchange)
    - 场外 (OTC)
 
+2b. **时效性验证**（新增 — 必须在输出前完成）
+   - `verified_current_as_of`: 对照目录的截止日期，如 "2025-12-31"
+   - `verified_via`: 验证依据，如 "SAFE现行有效外汇管理主要法规目录" 或 "CSRC法规目录" 或 "发文日期≥2021年直接通过"
+   - `amendments`: 若有修改，列出修改文件和修改条款
+   - 若在目录中未找到 → 不纳入信源清单，写入 outstanding_sources
+
 3. **Download Information**
    - 源URL (Source URL) — official page where found
    - 直接下载链接 (Direct download link) — PDF/Word/HTML if available
@@ -90,6 +96,8 @@ Return results as a **single JSON array** with this structure:
 - ✅ Verify each direct download link is accessible before including
 - ✅ Include publication dates for all documents
 - ✅ Cross-reference multiple P0/P1 sources when available
+- ✅ **时效性前置校验** — 每个法规对照权威目录（如SAFE现行有效法规目录）确认状态
+- ✅ **宽域搜索** — 站内搜索失败时，用核心词在L1/L2/L3域名范围内全网页搜索
 
 **MUST NOT DO:**
 - ❌ Reference non-official sources: 自媒体 (self-media), 券商研报 (brokerage research), 知乎 (Zhihu), 微博 (Weibo), 微信公众号 (WeChat official accounts)
@@ -108,17 +116,88 @@ Return results as a **single JSON array** with this structure:
 
 3. **Execute targeted priority search loop:**
    - Search P0 agency first with recommended keywords
-   - If found: extract metadata → verify downloads → output
+   - If found: extract metadata → verify downloads → **时效性校验** → output
    - If not found: escalate to each P1 source in sequence
-   - Continue through P2/P3 only if P1 yields no results
+   - **If both P0 and P1 fail → 宽域搜索（Broad-Domain Search）**
+   - Continue through P2/P3 only if P1 + 宽域 search yields no results
 
-4. **Extract metadata** for each discovered document using the Extraction Protocol
+4. **时效性校验（前置 — 在输出信源清单前完成）**
 
-5. **Verify & deduplicate** — same rule appearing on multiple official pages counts as one entry
+   > **原则**：信源清单中的每一个条目在进入 Archivist 之前必须确认其现行有效。
 
-6. **Output JSON array** sorted by priority (P0 first) then by publication date (newest first)
+   ```
+   对每个新发现的法规文件：
+       │
+       ├── ① 检查发文日期
+       │      ≥2021年 → 直接通过
+       │      <2021年 → 标记【需时效校验】，进入②
+       │
+       ├── ② 对照主管机构发布的《现行有效法规目录》
+       │      外汇类 → SAFE 目录 (每年1月更新，截至上一年12月31日)
+       │               URL: https://www.safe.gov.cn/safe/xxxx/0130/ → 检索最新PDF
+       │      衍生品类 → CSRC 法规目录
+       │      银行类 → NFRA 法规目录
+       │      └── 在目录中搜索法规名/文号
+       │          ├── 命中 → ✓ 现行有效 → status: "现行有效"
+       │          │         补充 fields: verified_current_as_of, verified_via
+       │          ├── 命中但标注"已修改" → ⚠ status: "现行有效（已修改）"
+       │          │         补充 amendments 字段
+       │          └── 未命中 → ✗ 可能已废止 → 不纳入信源清单
+       │
+       ├── ③ 检查原文页面标签
+       │      页面显示 "已废止" / "已失效" → 不纳入
+       │      页面显示 "征求意见稿" → 不纳入（标为 draft）
+       │      页面显示 "（已修改）" → 标记 amendments
+       │
+       └── ④ 写入 source_registry.json 的时效性字段
+              verified_current_as_of: "{目录截止日期}"
+              verified_via: "{目录名称}"
+   ```
 
-7. **Document coverage** — note which sources were searched and any gaps in rule availability
+5. **Extract metadata** for each discovered document using the Extraction Protocol
+
+6. **Verify & deduplicate** — same rule appearing on multiple official pages counts as one entry
+
+7. **Output JSON array** sorted by priority (P0 first) then by publication date (newest first)
+
+8. **Document coverage** — note which sources were searched and any gaps in rule availability
+
+---
+
+## 宽域搜索模式（站内搜索失败时的降级策略）
+
+> **触发条件**：P0 站内搜索 + P1 站内搜索 + P2/P3 均未找到目标文件，且该文件在 `_mandatory_sources_checklist` 中或 Gap 优先级为 P0。
+
+### 搜索步骤
+
+```
+1. 构造宽域搜索 Query
+   "{目标文件名/核心词} {机构简称} {文号前缀(如 金规/汇发/银发)}"
+   例："非集中清算衍生品 保证金 管理办法 金规 2024"
+
+2. 全网页搜索（不限站内）+ 域名白名单过滤
+   ✓ L1: safe.gov.cn / pbc.gov.cn / csrc.gov.cn / nfra.gov.cn / gov.cn
+   ✓ L2: chinamoney.com.cn / shclearing.com.cn / shfe.com.cn / cffex.com.cn / chinabond.com.cn / sse.com.cn / szse.cn
+   ✓ L3: nafmii.org.cn / sac.net.cn / sfia.org.cn
+   ✗ 排除: zhihu.com / weixin.qq.com / 任何 .com 非白名单商业域名
+
+3. 对过滤后的结果按相关性排序
+   标题完全匹配 + L1域名 → 置信度 H → 直接下载
+   标题部分匹配 + L1/L2域名 → 置信度 M → 精读确认
+   仅有域名匹配 → 置信度 L → 人工判断
+
+4. 下载 + 时效性校验 → 入库 → 更新 registry
+
+5. 若宽域搜索仍无结果 → 标记 outstanding，写入 `source_registry.json`
+```
+
+### 黑白名单管理
+
+> 白名单（允许下载的域名）写入 `source_registry.json → global_frameworks → l1_domains / l2_domains / l3_domains`
+> 黑名单（排除的域名）写入 `source_registry.json → global_frameworks → blocked_domains`
+> 初始黑名单：`["zhihu.com","weixin.qq.com","baidu.com","weibo.com","sina.com.cn","sohu.com","163.com"]`
+>
+> 后续通过对话补充/删除即可。
 
 ## User Interaction
 

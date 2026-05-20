@@ -227,10 +227,10 @@ ELSE：
 
 | 阶段 | 操作 |
 |------|------|
-| Recon 发现新信源 | 追加至对应业务大类的 `sources[]`（按 URL 去重） |
+| Recon 发现新信源 | 追加至对应业务大类的 `sources[]`（按 URL 去重）**+ 时效性校验前置**（对照权威目录确认现行有效） |
 | Archivist 归档完成 | 补充 `archived_at` 字段（指向知识库文件路径） |
-| Recon 搜索未果 | 写入 `outstanding_sources[]`（标记待获取状态） |
-| 每次文档定稿 | 检查 registry 是否包含文档中引用的所有信源 |
+| Recon 搜索未果 | 宽域搜索 → 仍未果 → 写入 `outstanding_sources[]` |
+| 每次文档定稿 | 检查 registry 是否包含文档中引用的所有信源 + 正文URL交叉扫描
 
 #### 信源注册表结构
 

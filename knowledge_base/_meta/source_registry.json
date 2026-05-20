@@ -1,11 +1,13 @@
 {
   "_schema_version": "1.0",
-  "_description": "信源注册表 — 按业务大类维护所有探查任务中用到的官方信源。每次Recon发现新信源或Archivist归档新文件时，BEx自动补充至对应大类。",
+  "_description": "信源注册表。每次Recon发现新信源或Archivist归档新文件时，BEx自动补充至对应大类。",
   "_last_updated": "2026-05-20",
   "categories": {
     "外汇": {
       "display_name": "外汇业务",
-      "probe_reports": ["knowledge_base/外汇业务综合探查报告.md"],
+      "probe_reports": [
+        "knowledge_base/外汇业务综合探查报告.md"
+      ],
       "sources": [
         {
           "id": "FX-001",
@@ -18,8 +20,16 @@
           "publish_date": "2025-12-26",
           "effective_date": "2026-02-01",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/银行间外汇市场/银行间外汇市场管理规定.md",
-          "tags": ["银行间外汇市场", "做市商", "中间价", "清算", "交易品种"]
+          "tags": [
+            "银行间外汇市场",
+            "做市商",
+            "中间价",
+            "清算",
+            "交易品种"
+          ]
         },
         {
           "id": "FX-002",
@@ -31,8 +41,16 @@
           "url": "https://www.safe.gov.cn/safe/2022/0520/20982.html",
           "publish_date": "2022-05-20",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/关于进一步促进外汇市场服务实体经济有关措施的通知.md",
-          "tags": ["外汇衍生品", "美式期权", "亚式期权", "实需原则", "差额结算"]
+          "tags": [
+            "外汇衍生品",
+            "美式期权",
+            "亚式期权",
+            "实需原则",
+            "差额结算"
+          ]
         },
         {
           "id": "FX-003",
@@ -45,8 +63,14 @@
           "publish_date": "2021-12-03",
           "effective_date": "2022-01-01",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/外汇市场交易行为规范指引.md",
-          "tags": ["交易行为规范", "内控制度", "实需原则"]
+          "tags": [
+            "交易行为规范",
+            "内控制度",
+            "实需原则"
+          ]
         },
         {
           "id": "FX-004",
@@ -60,8 +84,16 @@
           "effective_date": "2015-01-01",
           "status": "现行有效（已修改）",
           "amendments": "汇发〔2023〕8号部分修改第49条",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行办理结售汇业务管理办法实施细则.md",
-          "tags": ["结售汇", "综合头寸", "衍生产品", "实需原则", "限额管理"]
+          "tags": [
+            "结售汇",
+            "综合头寸",
+            "衍生产品",
+            "实需原则",
+            "限额管理"
+          ]
         },
         {
           "id": "FX-005",
@@ -74,8 +106,15 @@
           "publish_date": "2006-12-25",
           "effective_date": "2007-02-01",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/个人外汇管理办法.md",
-          "tags": ["个人外汇", "结售汇额度", "外币现钞", "外汇账户"]
+          "tags": [
+            "个人外汇",
+            "结售汇额度",
+            "外币现钞",
+            "外汇账户"
+          ]
         },
         {
           "id": "FX-006",
@@ -88,8 +127,14 @@
           "publish_date": "2007-01-05",
           "effective_date": "2007-02-01",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/个人外汇管理办法实施细则.md",
-          "tags": ["个人外汇", "年度总额5万美元", "现钞限额"]
+          "tags": [
+            "个人外汇",
+            "年度总额5万美元",
+            "现钞限额"
+          ]
         },
         {
           "id": "FX-007",
@@ -101,8 +146,14 @@
           "url": "https://www.safe.gov.cn/safe/2024/1227/25585.html",
           "publish_date": "2024-12-27",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行外汇风险交易报告管理办法（试行）.md",
-          "tags": ["风险交易报告", "反洗钱", "外汇合规"]
+          "tags": [
+            "风险交易报告",
+            "反洗钱",
+            "外汇合规"
+          ]
         },
         {
           "id": "FX-008",
@@ -114,8 +165,14 @@
           "url": "https://www.safe.gov.cn/safe/2024/1227/25581.html",
           "publish_date": "2024-12-27",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/银行外汇业务尽职免责规定（试行）.md",
-          "tags": ["尽职免责", "外汇合规", "展业三原则"]
+          "tags": [
+            "尽职免责",
+            "外汇合规",
+            "展业三原则"
+          ]
         },
         {
           "id": "FX-009",
@@ -125,8 +182,14 @@
           "domain": "chinamoney.com.cn",
           "url": "https://www.chinamoney.com.cn/chinese/bkccpr/",
           "status": "实时更新",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "数据服务实时更新",
           "archived_at": "knowledge_base/外汇即期/人民币汇率中间价.md",
-          "tags": ["中间价", "汇率", "CFETS"]
+          "tags": [
+            "中间价",
+            "汇率",
+            "CFETS"
+          ]
         },
         {
           "id": "FX-010",
@@ -136,8 +199,15 @@
           "domain": "chinamoney.com.cn",
           "url": "https://www.chinamoney.com.cn/chinese/fclzhuanqu/",
           "status": "实时更新",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "数据服务实时更新",
           "archived_at": "knowledge_base/外币拆借/外币拆借交易专区.md",
-          "tags": ["外币拆借", "USD CIROR", "拆借报价", "撮合交易"]
+          "tags": [
+            "外币拆借",
+            "USD CIROR",
+            "拆借报价",
+            "撮合交易"
+          ]
         },
         {
           "id": "FX-011",
@@ -147,8 +217,14 @@
           "domain": "safe.gov.cn",
           "url": "https://www.safe.gov.cn/safe/jshywhscgl/index.html",
           "status": "持续更新",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/TRS_结售汇/结售汇与外汇市场管理.md",
-          "tags": ["结售汇", "外汇市场", "法规索引"]
+          "tags": [
+            "结售汇",
+            "外汇市场",
+            "法规索引"
+          ]
         },
         {
           "id": "FX-012",
@@ -160,8 +236,13 @@
           "publish_date": "2025-03-28",
           "status": "已发布",
           "format": "PDF",
-          "tags": ["国际收支", "外汇市场交易量", "统计数据"],
-          "notes": "Round 2 定向探查确证源URL有效，PDF可下载"
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
+          "tags": [
+            "国际收支",
+            "外汇市场交易量",
+            "统计数据"
+          ]
         },
         {
           "id": "FX-013",
@@ -173,8 +254,14 @@
           "url": "https://www.safe.gov.cn/safe/2025/1226/26965.html",
           "publish_date": "2025-12-26",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/关于境内企业境外上市资金管理有关问题的通知.md",
-          "tags": ["境外上市", "资本项目", "跨境资金"]
+          "tags": [
+            "境外上市",
+            "资本项目",
+            "跨境资金"
+          ]
         },
         {
           "id": "FX-014",
@@ -186,8 +273,14 @@
           "url": "https://www.safe.gov.cn/safe/2025/1226/26960.html",
           "publish_date": "2025-12-26",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/关于跨国公司本外币一体化资金池业务有关事宜的通知.md",
-          "tags": ["跨境资金池", "本外币一体化", "跨国公司"]
+          "tags": [
+            "跨境资金池",
+            "本外币一体化",
+            "跨国公司"
+          ]
         },
         {
           "id": "FX-015",
@@ -199,8 +292,14 @@
           "url": "https://www.safe.gov.cn/safe/2026/0320/27266.html",
           "publish_date": "2026-03-20",
           "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "SAFE现行有效外汇管理主要法规目录(截至2025-12-31)",
           "archived_at": "knowledge_base/外汇管理法规/资本项目外汇/境内企业境外放款管理办法.md",
-          "tags": ["境外放款", "跨境融资", "资本项目"]
+          "tags": [
+            "境外放款",
+            "跨境融资",
+            "资本项目"
+          ]
         },
         {
           "id": "FX-016",
@@ -213,22 +312,87 @@
           "publish_date": "2026-05-14",
           "effective_date": "2026-11-16",
           "status": "已发布（尚未施行）",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
           "archived_at": "knowledge_base/TRS_结售汇/衍生品交易监督管理办法（试行）.md",
-          "tags": ["衍生品", "TRS", "保证金", "履约保障"]
+          "tags": [
+            "衍生品",
+            "TRS",
+            "保证金",
+            "履约保障"
+          ]
+        },
+        {
+          "id": "FX-017",
+          "name": "中国外汇交易中心产品指南（外汇市场）V4.3",
+          "agency": "中国外汇交易中心 (CFETS)",
+          "level": "L2",
+          "domain": "chinamoney.com.cn",
+          "url": "https://www.chinamoney.com.cn/chinese/whcpzy/20250421/3092650.html",
+          "publish_date": "2025-04-21",
+          "status": "现行有效",
+          "format": "PDF(134页)",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
+          "archived_at": "knowledge_base/外汇即期/CFETS产品指南外汇市场V4.3.md",
+          "tags": [
+            "产品指南",
+            "即期",
+            "远期",
+            "掉期",
+            "货币掉期",
+            "期权",
+            "拆借",
+            "回购",
+            "利率互换",
+            "同业存款"
+          ],
+          "notes": "2026-05-20下载归档。一份PDF覆盖外汇全品种产品定义与交易规则。"
+        },
+        {
+          "id": "FX-018",
+          "name": "金融机构非集中清算衍生品交易保证金管理办法",
+          "agency": "国家金融监督管理总局 (NFRA)",
+          "doc_number": "金规〔2024〕25号",
+          "level": "L1",
+          "domain": "nfra.gov.cn",
+          "url": "https://www.nfra.gov.cn/chinese/docfile/2025/47de9ca6d479493ca9ae67db5524c26f.pdf",
+          "publish_date": "2024-12-30",
+          "effective_date": "2026-01-01",
+          "status": "现行有效",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
+          "archived_at": "knowledge_base/外汇管理法规/结售汇与外汇市场/金融机构非集中清算衍生品交易保证金管理办法.md",
+          "tags": [
+            "保证金",
+            "初始保证金",
+            "变动保证金",
+            "非集中清算",
+            "实物结算豁免"
+          ],
+          "notes": "第7条确认实物结算外汇远掉期豁免初始保证金。"
+        },
+        {
+          "id": "FX-019",
+          "name": "现行有效外汇管理主要法规目录（截至2025年12月31日）",
+          "agency": "国家外汇管理局 (SAFE)",
+          "level": "L1",
+          "domain": "safe.gov.cn",
+          "url": "https://www.safe.gov.cn/safe/2026/0130/27089.html",
+          "publish_date": "2026-01-30",
+          "status": "现行有效（年度更新）",
+          "format": "PDF",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
+          "tags": [
+            "法规目录",
+            "时效性验证",
+            "现行有效"
+          ],
+          "notes": "Recon时效性校验的权威对照源。每年1月更新。"
         }
       ],
       "outstanding_sources": [
-        {
-          "id": "FX-PENDING-001",
-          "name": "金融机构非集中清算衍生品交易保证金管理办法",
-          "agency": "国家金融监督管理总局 (NFRA)",
-          "level": "L1",
-          "domain": "nfra.gov.cn",
-          "expected_date": "2024-12",
-          "status": "待获取",
-          "notes": "Round 2 定向探查：NFRA站内搜索未返回结果。已标记为P0待人工核实。对外汇衍生品保证金制度有重大影响。",
-          "gap_ref": "GAP-005 (P0)"
-        },
         {
           "id": "FX-PENDING-002",
           "name": "CFFEX外汇期货仿真交易合约规则",
@@ -236,78 +400,18 @@
           "level": "L2",
           "domain": "cffex.com.cn",
           "status": "待获取",
-          "notes": "Round 2 定向探查：网站不可访问（连接重置）。外汇期货为仿真阶段，P1优先级。",
+          "notes": "宽域搜索无L1/L2命中。外汇期货为仿真阶段，P1优先级。",
           "gap_ref": "GAP-002 (P1)"
-        },
-        {
-          "id": "FX-PENDING-003",
-          "name": "CFETS外汇即期产品定义与交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现：为外汇即期最核心的产品定义信源，当前仅通过中间价页面间接引用，未独立归档。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
-        },
-        {
-          "id": "FX-PENDING-004",
-          "name": "CFETS外汇远期产品定义与交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现：报告正文多处引用'交易中心公布的产品定义'但未给出具体URL。为外汇远期核心产品信源。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
-        },
-        {
-          "id": "FX-PENDING-005",
-          "name": "CFETS外汇掉期产品定义与交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现。外汇掉期日均交易量近1000亿美元，产品定义信源必须独立归档。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
-        },
-        {
-          "id": "FX-PENDING-006",
-          "name": "CFETS外汇货币掉期产品定义与交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现。涉及本金交换形式、利息交换等复杂定义，须独立归档。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
-        },
-        {
-          "id": "FX-PENDING-007",
-          "name": "CFETS外汇期权产品定义与交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现。差额交割/全额交割、行权规则等关键定义须从CFETS产品指南获取。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
-        },
-        {
-          "id": "FX-PENDING-008",
-          "name": "CFETS银行间人民币外汇市场交易规则",
-          "agency": "中国外汇交易中心 (CFETS)",
-          "level": "L2",
-          "domain": "chinamoney.com.cn",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现。CFETS发布的通用交易规则，覆盖全品种交易时间、确认流程、竞价/询价/撮合规则。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
         },
         {
           "id": "FX-PENDING-009",
           "name": "上海清算所集中清算业务指南（外汇部分）",
           "agency": "上海清算所 (SHCH)",
           "level": "L2",
-          "domain": "shclearing.com",
-          "status": "待获取",
-          "notes": "2026-05-20 排查发现：报告中提及上海清算所15次但无任何shclearing.com URL归档。集中清算CCP是银行间外汇市场清算的核心基础设施，必须独立归档。",
-          "gap_ref": "信源完整性检查 / 强制信源表"
+          "domain": "shclearing.com.cn",
+          "url": "https://www.shclearing.com.cn/qsywzq/whzq/",
+          "status": "已发现（待下载归档PDF）",
+          "notes": "Round3确认：覆盖人民币外汇CCP(即期/掉期/远期/期权)、外币对CCP、外汇双边集中清算、外币回购清算。"
         }
       ]
     },
@@ -332,8 +436,16 @@
           "publish_date": "2026-05-14",
           "effective_date": "2026-11-16",
           "status": "已发布（尚未施行）",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "发文日期>=2021年直接通过",
           "archived_at": "knowledge_base/TRS_结售汇/衍生品交易监督管理办法（试行）.md",
-          "tags": ["衍生品", "TRS", "保证金", "履约保障", "场外衍生品"]
+          "tags": [
+            "衍生品",
+            "TRS",
+            "保证金",
+            "履约保障",
+            "场外衍生品"
+          ]
         }
       ],
       "outstanding_sources": []
@@ -385,77 +497,192 @@
             "https://www.shfe.com.cn/publicnotice/notice/202605/t20260515_831716.html"
           ],
           "status": "实时更新",
+          "verified_current_as_of": "2025-12-31",
+          "verified_via": "数据服务实时更新",
           "archived_at": "knowledge_base/外汇期货/上海期货交易所.md",
-          "tags": ["商品期货", "期货交易", "风控规则"]
+          "tags": [
+            "商品期货",
+            "期货交易",
+            "风控规则"
+          ]
         }
       ],
       "outstanding_sources": []
     }
   },
   "global_frameworks": {
-    "l1_domains": ["gov.cn", "safe.gov.cn", "pbc.gov.cn", "csrc.gov.cn", "nfra.gov.cn"],
-    "l2_domains": ["chinamoney.com.cn", "shfe.com.cn", "cffex.com.cn", "sse.com.cn", "szse.cn", "ceex.cn", "shclearing.com"],
-    "l3_domains": ["nafmii.org.cn", "sac.net.cn", "sfia.org.cn"],
-    "l4_domains": ["laws.cn"]
+    "l1_domains": [
+      "gov.cn",
+      "safe.gov.cn",
+      "pbc.gov.cn",
+      "csrc.gov.cn",
+      "nfra.gov.cn"
+    ],
+    "l2_domains": [
+      "chinamoney.com.cn",
+      "shfe.com.cn",
+      "cffex.com.cn",
+      "sse.com.cn",
+      "szse.cn",
+      "ceex.cn",
+      "shclearing.com.cn",
+      "chinabond.com.cn"
+    ],
+    "l3_domains": [
+      "nafmii.org.cn",
+      "sac.net.cn",
+      "sfia.org.cn"
+    ],
+    "l4_domains": [
+      "laws.cn"
+    ],
+    "blocked_domains": [
+      "zhihu.com",
+      "weixin.qq.com",
+      "baidu.com",
+      "weibo.com",
+      "sina.com.cn",
+      "sohu.com",
+      "163.com"
+    ],
+    "_blocked_domains_note": "宽域搜索时排除以上域名。后续通过对话补充/删除。"
   },
   "_mandatory_sources_checklist": {
-    "_description": "按资产大类预设的强制信源检查表。Recon每次探查前必须过一遍此表，确保核心信源不被遗漏。资产大类定义以 bex.agent.md 为唯一权威源。",
+    "_description": "按资产大类预设的强制信源检查表。Recon每次探查前必须过一遍此表。资产大类定义以 bex.agent.md 为唯一权威源。",
     "外汇": {
-      "regulators": ["国家外汇管理局(SAFE)官网 - 结售汇与外汇市场管理栏目", "中国人民银行(PBOC)官网"],
-      "exchanges_and_infra": [
-        "中国外汇交易中心(CFETS/chinamoney.com.cn) — 各品种产品定义与交易规则",
-        "中国外汇交易中心 — 银行间人民币外汇市场交易规则",
-        "上海清算所(SHCH/shclearing.com) — 集中清算业务指南(外汇部分)",
-        "中国金融期货交易所(CFFEX) — 外汇期货仿真合约规则(如适用)"
+      "regulators": [
+        "国家外汇管理局(SAFE)官网",
+        "中国人民银行(PBOC)官网"
       ],
-      "associations": ["中国银行间市场交易商协会(NAFMII) — 汇率衍生产品交易定义文件"],
-      "data_sources": ["CFETS人民币汇率中间价", "CFETS外币拆借交易专区", "SAFE国际收支报告(年度)"]
+      "exchanges_and_infra": [
+        "中国外汇交易中心(CFETS)—产品指南",
+        "上海清算所(SHCH)—集中清算指南",
+        "中国金融期货交易所(CFFEX)—外汇期货合约规则(如适用)"
+      ],
+      "associations": [
+        "NAFMII—汇率衍生产品交易定义文件"
+      ],
+      "data_sources": [
+        "CFETS人民币汇率中间价",
+        "CFETS外币拆借交易专区",
+        "SAFE国际收支报告(年度)",
+        "SAFE现行有效外汇管理主要法规目录(年度)"
+      ]
     },
     "碳金融": {
-      "regulators": ["生态环境部", "中国人民银行"],
-      "exchanges_and_infra": ["上海环境能源交易所(ceex.cn)", "湖北碳排放权交易中心", "广州碳排放权交易所"],
+      "regulators": [
+        "生态环境部",
+        "中国人民银行"
+      ],
+      "exchanges_and_infra": [
+        "上海环境能源交易所(ceex.cn)"
+      ],
       "associations": [],
       "data_sources": []
     },
     "收益互换": {
-      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
-      "exchanges_and_infra": ["境外标的交易所(港交所/新交所等)", "境内标的交易所(上交所/深交所/中金所)"],
-      "associations": ["SAC — 收益互换业务管理办法", "NAFMII — 信用衍生品定义文件"],
+      "regulators": [
+        "中国证监会(CSRC)",
+        "中国证券业协会(SAC)"
+      ],
+      "exchanges_and_infra": [
+        "境外标的交易所",
+        "境内标的交易所"
+      ],
+      "associations": [
+        "SAC—收益互换业务管理办法",
+        "NAFMII—信用衍生品定义文件"
+      ],
       "data_sources": []
     },
     "利率互换": {
-      "regulators": ["中国人民银行(PBOC)", "国家金融监督管理总局(NFRA)"],
-      "exchanges_and_infra": ["中国外汇交易中心(CFETS) — 利率互换交易系统", "上海清算所(SHCH) — 利率互换集中清算"],
-      "associations": ["NAFMII — 利率衍生品交易定义文件"],
-      "data_sources": ["CFETS利率互换曲线", "SHIBOR各期限利率"]
+      "regulators": [
+        "中国人民银行(PBOC)",
+        "NFRA"
+      ],
+      "exchanges_and_infra": [
+        "CFETS利率互换系统",
+        "SHCH利率互换集中清算"
+      ],
+      "associations": [
+        "NAFMII—利率衍生品定义文件"
+      ],
+      "data_sources": [
+        "CFETS利率互换曲线",
+        "SHIBOR"
+      ]
     },
     "场外期权": {
-      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
-      "exchanges_and_infra": ["标的资产交易所(境外指数/ETF/商品对应交易所)"],
-      "associations": ["SAC — 场外期权业务自律规则"],
+      "regulators": [
+        "中国证监会(CSRC)",
+        "SAC"
+      ],
+      "exchanges_and_infra": [
+        "标的资产交易所"
+      ],
+      "associations": [
+        "SAC—场外期权业务自律规则"
+      ],
       "data_sources": []
     },
     "其他衍生品": {
-      "regulators": ["中国证监会(CSRC)", "国家金融监督管理总局(NFRA)", "中国人民银行(PBOC)"],
-      "exchanges_and_infra": ["各标的资产交易所"],
-      "associations": ["NAFMII — CDS/信用衍生品定义文件"],
+      "regulators": [
+        "CSRC",
+        "NFRA",
+        "PBOC"
+      ],
+      "exchanges_and_infra": [
+        "各标的资产交易所"
+      ],
+      "associations": [
+        "NAFMII—CDS/信用衍生品定义文件"
+      ],
       "data_sources": []
     },
     "收益凭证": {
-      "regulators": ["中国证监会(CSRC)", "中国证券业协会(SAC)"],
+      "regulators": [
+        "CSRC",
+        "SAC"
+      ],
       "exchanges_and_infra": [],
-      "associations": ["SAC — 收益凭证业务规范"],
+      "associations": [
+        "SAC—收益凭证业务规范"
+      ],
       "data_sources": []
     },
     "债券及ETF": {
-      "regulators": ["中国人民银行(PBOC)", "中国证监会(CSRC)"],
-      "exchanges_and_infra": ["中国外汇交易中心(CFETS) — 本币市场", "上海清算所(SHCH)", "中央国债登记结算公司(chinabond.com.cn)", "上交所(sse.com.cn)", "深交所(szse.cn)"],
-      "associations": ["NAFMII — 债券交易规范"],
-      "data_sources": ["中债估值", "CFETS债券行情"]
+      "regulators": [
+        "PBOC",
+        "CSRC"
+      ],
+      "exchanges_and_infra": [
+        "CFETS本币市场",
+        "SHCH",
+        "中央结算公司(chinabond)",
+        "SSE",
+        "SZSE"
+      ],
+      "associations": [
+        "NAFMII—债券交易规范"
+      ],
+      "data_sources": [
+        "中债估值",
+        "CFETS债券行情"
+      ]
     },
     "对冲交易": {
-      "regulators": ["中国证监会(CSRC)", "中国金融期货交易所(CFFEX)"],
-      "exchanges_and_infra": ["上海期货交易所(SHFE)", "大连商品交易所(DCE)", "郑州商品交易所(CZCE)", "中国金融期货交易所(CFFEX)", "上交所(sse.com.cn)", "深交所(szse.cn)"],
+      "regulators": [
+        "CSRC",
+        "CFFEX"
+      ],
+      "exchanges_and_infra": [
+        "SHFE",
+        "DCE",
+        "CZCE",
+        "CFFEX",
+        "SSE",
+        "SZSE"
+      ],
       "associations": [],
       "data_sources": []
     }

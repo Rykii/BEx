@@ -69,6 +69,7 @@ Additional optional fields (if present in document):
 - Target path: `knowledge_base/{asset_type}/{sanitized_doc_title}.md` (relative to project root)
 - Check if file already exists in the knowledge base
 - Each document must follow the canonical path convention
+- **时效性状态**（如 `status: 现行有效`）已由 Recon 在信源清单阶段完成验证，Archivist 直接继承
   
 **If new document:**
 - Save directly with full filename
